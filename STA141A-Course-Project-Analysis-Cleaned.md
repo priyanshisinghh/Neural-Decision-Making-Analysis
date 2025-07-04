@@ -12,21 +12,21 @@ This project analyzes neural activity recorded from mice performing a contrast-b
 
 Our objective is to build a predictive model that determines trial outcomes based on neural activity. The analysis will follow three key phases:
 
-** **Exploratory Data Analysis (EDA)** – Investigating dataset structure, neural activity patterns, and behavioral responses.
-** **Data Integration** – Combining trial data across sessions to construct a unified dataset.
-** **Predictive Modeling** – Using statistical and machine learning techniques to predict trial success based on spike train data and contrast asymmetry.
+- **Exploratory Data Analysis (EDA)** – Investigating dataset structure, neural activity patterns, and behavioral responses.
+-  **Data Integration** – Combining trial data across sessions to construct a unified dataset.
+-  **Predictive Modeling** – Using statistical and machine learning techniques to predict trial success based on spike train data and contrast asymmetry.
 
 By identifying neural patterns that differentiate successful and unsuccessful trials, we aim to assess the predictive power of neural activity in decision-making. This study contributes to a deeper understanding of how sensory information is encoded and used by the brain to guide behavior.
 
 # Exploratory Data Analysis
 Looking at the features of the datasets for each mice, there are 6 variables for each trial:
 
-** **feedback_type**: This variable stores the behavioral outcome of each trial, where 1 represents success (the mouse steers toward the lower contrast side or holds the wheel steady when contrasts are equal) and -1 represents failure
-** **contrast_left**: This variable correlates to the contrast level of the stimulus presented in the left visual field, with possible values of 0, 0.25, 0.5, and 1.
-** **contrast_right**: This variable also correlates to the contrast level of the stimulus presented in the right visual field, with the same possible values as contrast_left.
-** **time**: The time bin within a trial during which the spike counts were recorded
-** **spks**: The spike count recorded from neurons within the visual cortex and associated brain regions during a given time bin
-** **brain_area**: The brain region from which the recorded neuron is located. The dataset includes multiple regions, such as ACA, CA3, DG, LS, MOs, root, SUB, and VISp.
+-  **feedback_type**: This variable stores the behavioral outcome of each trial, where 1 represents success (the mouse steers toward the lower contrast side or holds the wheel steady when contrasts are equal) and -1 represents failure
+-  **contrast_left**: This variable correlates to the contrast level of the stimulus presented in the left visual field, with possible values of 0, 0.25, 0.5, and 1.
+-  **contrast_right**: This variable also correlates to the contrast level of the stimulus presented in the right visual field, with the same possible values as contrast_left.
+-  **time**: The time bin within a trial during which the spike counts were recorded
+-  **spks**: The spike count recorded from neurons within the visual cortex and associated brain regions during a given time bin
+-  **brain_area**: The brain region from which the recorded neuron is located. The dataset includes multiple regions, such as ACA, CA3, DG, LS, MOs, root, SUB, and VISp.
 
 ### Summary of the Data Sessions
 
@@ -70,19 +70,13 @@ An interesting pattern observed in the heatmap is that mice tend to have a highe
 
 The EDA examines the behavioral and neural data from the mice, focusing on key variables such as trial feedback, contrast conditions, spike counts, and brain areas. Based on all the above plots and tables, we made a few key insights regarding the data:
 
-** Session Summary: Mouse trial counts, recorded neurons, and activated brain areas varied across sessions. Lederberg had the most trials, while Cori had the fewest, which could lead to bias in modeling.
-
-** Data Structure Plots: The number of trials, neurons, and brain areas across sessions showed variability, highlighting potential data imbalances, particularly for Lederberg.
-
-** Stimulus Conditions: Larger contrast differences between the left and right visual fields led to higher success rates. The 0-0 contrast condition was the most successful overall.
-
-** Feedback: Cori showed inconsistent success but improved, while Lederberg’s performance was fluctuating but the highest. This indicates variability in task consistency among the mice.
-
-** Neural Activity: No single brain region was strongly linked to success, suggesting that multiple brain areas contribute to decision-making.
-
-** Mouse-to-Mouse Variation: Neural responses varied across mice, with some regions showing more activity, which could influence success rates.
-
-** Stimulus & Success Rate: Higher contrast differences, especially with the higher contrast on the left, correlated with better success rates.
+- Session Summary: Mouse trial counts, recorded neurons, and activated brain areas varied across sessions. Lederberg had the most trials, while Cori had the fewest, which could lead to bias in modeling.
+- Data Structure Plots: The number of trials, neurons, and brain areas across sessions showed variability, highlighting potential data imbalances, particularly for Lederberg.
+- Stimulus Conditions: Larger contrast differences between the left and right visual fields led to higher success rates. The 0-0 contrast condition was the most successful overall.
+- Feedback: Cori showed inconsistent success but improved, while Lederberg’s performance was fluctuating but the highest. This indicates variability in task consistency among the mice.
+- Neural Activity: No single brain region was strongly linked to success, suggesting that multiple brain areas contribute to decision-making.
+- Mouse-to-Mouse Variation: Neural responses varied across mice, with some regions showing more activity, which could influence success rates.
+- Stimulus & Success Rate: Higher contrast differences, especially with the higher contrast on the left, correlated with better success rates.
 
 For our next steps, we will use these key findings to combine data from multiple sessions, addressing variations in trials, neurons, and brain areas.
 
@@ -99,9 +93,9 @@ Despite these challenges, in the EDA, we also found several consistent patterns 
 
 To address these considerations and challenges, when building my model, I engineered some features and tried to:
 
-** Extract shared patterns accross sessions that were more visibly extractable and obvious such as the contrast difference correlations, and the 0-0 constrast condition indicator. This was done by getting the absolute value difference between the left anr right constrasts, and capturing the directional effect for the left or right higher constrast case
+- Extract shared patterns accross sessions that were more visibly extractable and obvious such as the contrast difference correlations, and the 0-0 constrast condition indicator. This was done by getting the absolute value difference between the left anr right constrasts, and capturing the directional effect for the left or right higher constrast case
 
-** I also addressed differences between sessions by weighting trial with respect to the mouse’s trial counts, the mouse-specific performing metrics, and the trial progression features to account for the differences in trial counts accross the micee and the variations across mice. This was done by taking into account the mouses’s average success to create a baseline performance measure for each mouse, and then capture any learning effects within the mouse as seen through progressions of each trial. I also took into account any inter-session patterns and the disbalanced trial counts per mouse by assigning trial weights that were inversely relational to the mice’s trial counts (so the more trials a mouse has, the less weight it has to minimize skew).
+- I also addressed differences between sessions by weighting trial with respect to the mouse’s trial counts, the mouse-specific performing metrics, and the trial progression features to account for the differences in trial counts accross the micee and the variations across mice. This was done by taking into account the mouses’s average success to create a baseline performance measure for each mouse, and then capture any learning effects within the mouse as seen through progressions of each trial. I also took into account any inter-session patterns and the disbalanced trial counts per mouse by assigning trial weights that were inversely relational to the mice’s trial counts (so the more trials a mouse has, the less weight it has to minimize skew).
 
 ### Interpretations of Results
 
