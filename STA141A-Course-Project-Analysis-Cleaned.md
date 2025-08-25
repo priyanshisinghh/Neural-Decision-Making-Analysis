@@ -32,6 +32,8 @@ Looking at the features of the datasets for each mice, there are 6 variables for
 
 In the table below, we get a basic overview of each of the trial sessions. The mouse_name column and the date_exp column correspond to the dates that the mice went through the session. The num_trial variable corresponds to the amount on trials the mouse went through per session and this number varies from session to session, and from mouse to mouse. The num_neurons column corresponds to the total number of recorded neurons active per session, per mouse. The num_brain_areas variable is the number of unique brain areas recorded per session for each mouse. The last two variables, num_feedback_types and num_stimuli_conditions are constant and stay at values of 2 and 4 correctly as there are only 2 types of feedback each session can have (a 1 for success or a -1 for failure) and only 4 possible stimuli conditions across all sessions (0, 0.25, 0.5, 1).
 
+![Summary of the Data Sessions](images/DataSessionsSum.png)
+
 ### Data Structure Plots
 
 Furthermore, the plots below illustrate the variability in the number of trials, recorded neurons, and activated brain areas across sessions and mice.
