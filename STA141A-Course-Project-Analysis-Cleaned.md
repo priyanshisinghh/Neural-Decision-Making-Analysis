@@ -40,6 +40,8 @@ Furthermore, the plots below illustrate the variability in the number of trials,
 
 The first plot shows the number of trials per session. Notably, the mouse Lederberg has significantly more sessions—and therefore more trials—than the other mice, which could introduce bias into the model. Cori appears to have the least amount of trials, which is also important to recognize within for the model. The second plot examines the number of recorded neurons per session. While most sessions fall within a similar range, session 4 for Forssmann stands out with a substantially higher neuron count. This may be an outlier and should be considered when building the model. Additionally, Lederberg’s larger number of sessions suggests he also has more neurons recorded overall. The final plot visualizes the number of brain areas activated per session. Cori and Forssmann appear to have fewer recorded brain areas compared to Hench and Lederberg. However, Lederberg’s increased session count likely contributes to his higher number of recorded brain areas. Also, Hench seems to have a higher number of brain areas recorded comparatively throughout his sessions while the other mice seem to fluctuate more.
 
+![Data Structure Plots](images/dataStructPlot.png)
+
 ### Stimulus Conditions Analysis
 
 The following plots illustrate the frequency and success rates of different stimulus contrast combinations across all mice. To interpret these plots, note that each point represents a specific contrast pair tested during the experiment, and the size of the blue circles indicates the number of successful trials for that contrast combination. Larger circles correspond to higher success rates.
@@ -50,9 +52,13 @@ Interestingly, Cori appears to have a more evenly distributed success rate acros
 
 The count plot further confirms that the 0-0 stimulus was tested most frequently, as expected for a neutral baseline condition. The second most common stimulus combination was right contrast = 0.25 and left contrast = 1.0, which was tested significantly more than other contrast pairs. This imbalance in stimulus distribution could introduce potential biases in the predictive model, which should be considered in further analysis.
 
+![Stimulus Conditions Plot](images/StimCondPlot.png)
+
 ### Feedback Analysis
 
 The plot below illustrates the consistency of success rates across mice. In general, Cori exhibited the least consistent success and the lowest average success, followed by Forssmann, Hench, and finally Lederberg, who had the most stable performance. However, it is important to note that Lederberg had the highest number of trials, while Cori had the fewest. Additionally, Cori and Hench showed an overall improvement in success rates over time, whereas Forssmann and Lederberg demonstrated more fluctuation throughout the sessions but had higher success rates.
+
+![Feedback Analysis Plot](images/FeedbackAnalysis.png)
 
 ### Neural Activity Analysis
 
