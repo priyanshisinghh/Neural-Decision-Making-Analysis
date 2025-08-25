@@ -64,15 +64,21 @@ The plot below illustrates the consistency of success rates across mice. In gene
 
 This plot displays spike rates by brain area, colored according to whether the session was successful. There isn’t a clear, distinct pattern linking specific brain areas to success, suggesting that decision-making likely involves multiple regions rather than a single area. While there are several outliers, one notable observation is the high spike rate in the RN area, which also shows a relatively good trial outcome. Other areas with higher average trial outcomes include CA1, LSr, PO, RN, SCs, and SB. These areas may play a key role in predicting session outcomes and could be important for model development.
 
+![Neural Activity Analysis Plot](images/NeuralAct.png)
+
 ### Mouse-to-Mouse Variation
 
 This plot illustrates the differences in neural responses across mice, helping to identify whether certain mice consistently show higher activity in specific brain regions. Although the pattern is not immediately clear, it appears that Cori and Lederberg exhibit more neural activity across regions compared to Forssman and Hench, as indicated by more frequent and higher intensity red and purple spikes in the plot. This could be influenced by factors such as insert factors here. Interestingly, Hench shows more activity in certain regions, such as VISrl. This analysis accounts for individual variation among the mice to determine if naturally higher activity levels might influence their performance in stimulus success outcomes.
+
+![Mouse to Mouse Plot](images/MousetoMouse.png)
 
 ### Stimuli and Success Rate
 
 The heatmap below displays the success rates based on the contrast combinations of stimuli. From this heatmap, we can observe that the combinations with the highest success rates are those with larger contrast differences, which mirrors the findings from the stimulus condition analysis plot. For example, combinations such as 0.5 & 0, 1 & 0, and 0.25 & 1 all have success rates ranging from 0.7 to 0.85. In contrast, combinations with smaller contrast differences, such as 0.5 & 0.25, show a lower success rate of around 0.63, regardless of whether the higher contrast is on the left or right side. This suggests that a greater difference between contrasts leads to a higher success rate in mice.
 
 An interesting pattern observed in the heatmap is that mice tend to have a higher success rate when the higher contrast is presented on the left side, rather than the right. For instance, when the left stimulus is set to 1 and the right stimulus is set to 0, the success rate is 0.84, while the inverse (left at 0 and right at 1) results in a success rate of 0.75. This difference highlights an interesting trend in how contrast orientation may affect the mice’s ability to succeed in the task.
+
+![Heatmap](images/Heatmap.png)
 
 ## Overview of EDA
 
