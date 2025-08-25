@@ -123,7 +123,10 @@ The next image visualizes the relatiionship between the contrast diffeence and t
 
 The fourth image is a plot describing the right-zero conditions suggesting that the simulations in which the right side is 0 and the left side is more than 0, have the highest success rates of around 80%. This follows our first observation and visualization where we observed that there seems to be a higher success rate when the left contrast is more than the right contrast. The next “most successful” configuration is when the left is 0, also support the idea that the higher the difference of contrast, the higher the success rate typically is. Both of these conditions do better than the condition in which both the stimulus are 0 or both of them are more than 0, which further reinforces the idea that the larger contrast difference is important and highlights the importance of this configuration not previously noticed.
 
-The last visualization shows the variability in the learning patterns across the mice, with some mice like Lederberg impriving overtime and others have more fluctaion. This means that using the weighting approach will be good to ensure that these patterns are accounted for when developing the predictive model despite the trial count imabalnces.
+The last visualization shows the variability in the learning patterns across the mice, with some mice like Lederberg impriving overtime and others have more fluctaion. This means that using the weighting approach will be good to ensure that these patterns are accounted for when developing the predictive model despite the trial count imbalances.
+
+![Data Integration Image 1](images/DataInt1.png)
+![Data Integration Image 2](images/DataInt2.png)
 
 
 # Predictive Modeling
@@ -152,6 +155,8 @@ The Random Forest model’s overall accuracy of 74.2% demonstrates that our inte
 
 These results not only validate the patterns identified in our exploratory analysis but also provide solidified evidence for the relative importance of different factors in driving trial outcomes. Surprisingly, the prevalence of session progression in feature importance highlights the inherent nature of decision-making, with mice continually adapting their strategies throughout the experiment.
 
+![Prediction Model Summary Part 1](images/PredModelSum1.png)
+![Prediction Model Summary Part 2](images/PredModelSum2.png)
 
 # Next Steps
 
