@@ -1,4 +1,4 @@
-# STA141A-Project
+# Neural Decision Making Analysis
 
 This is a project I had to code and analyze for my STA141A class in Winter 2025.
 
