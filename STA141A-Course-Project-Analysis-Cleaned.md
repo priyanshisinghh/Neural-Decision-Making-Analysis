@@ -1,4 +1,5 @@
-# STA141 COURSE PROJECT 
+# Neural Decision Making Analysis Report
+STA141A Course Project
 Priyanshi Singh 
 3/17/2025
 
